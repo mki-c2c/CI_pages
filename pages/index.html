@@ -1,0 +1,26 @@
+<script>
+const jupyterLite_url = "https://jupyter.org/try-jupyter/lab/"
+const GH_pages_base = "https://mki-c2c.github.io/jupyter_examples"
+const myscripts = [
+  'Classes.ipynb',
+  'Complex.ipynb',
+  'Geo.ipynb',
+  'sql_ext.ipynb',
+]
+const allUrls = myscripts.map(f =>`fromURL=${GH_pages_base}/${f}`).join('&')
+</script>
+<html>
+  <body>
+    <ul>
+      <script>
+      myscripts.forEach(f => {
+        document.write(`<li><a target="_blank" href="${jupyterLite_url}?fromURL=${GH_pages_base}/${f}">Open ${f} in JupyterLite</a></li>\n`)
+      })
+      </script>
+    </ul>
+    <script>
+      document.write(`<a target="_blank" href="${jupyterLite_url}?${allUrls}">Open all notebooks in JupyterLite</a>\n`)
+    </script>
+  </body>
+</html>
+
